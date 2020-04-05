@@ -15,15 +15,16 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from tarea1.views import *
+from tarea1ti_api.views import *
 
 from django.conf import settings
 from django.conf.urls.static import static
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('home/', home, name='home'),
+    path('', home, name='home'),
     path('episodios/<int:id>', episodios, name='episodios'),
     path('characters/<int:id>', characters, name='characters'),
     path('lugares/<int:id>', lugares, name='lugares')
-] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
+]
+# + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)

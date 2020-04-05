@@ -90,7 +90,7 @@ def info_personaje(id):
     return resultado
 
 
-print(info_personaje(249))
+# print(info_personaje(249))
 
 
 
@@ -125,4 +125,4 @@ def info_lugar(id):
     info_lugar.append(personajes)
     return info_lugar
 
-print(info_lugar(7))
+# print(info_lugar(7))

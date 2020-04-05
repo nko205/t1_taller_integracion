@@ -1,6 +1,6 @@
 from django.http import HttpResponse
 from django.shortcuts import render
-from tarea1.req import *
+from tarea1ti_api.req import *
 
 
 
