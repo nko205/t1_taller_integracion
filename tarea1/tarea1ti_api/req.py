@@ -14,8 +14,8 @@ def info_episodios(lista):
 
 def get_all_episodes():
 
-    pag1 = requests.get("https://rickandmortyapi.com/api/episode/?page=1").json()
-    pag2 = requests.get("https://rickandmortyapi.com/api/episode/?page=2").json()
+    pag1 = requests.get("https://integracion-rick-morty-api.herokuapp.com/api/episode/?page=1").json()
+    pag2 = requests.get("https://integracion-rick-morty-api.herokuapp.com/api/episode/?page=2").json()
     lista_resultado = [pag1, pag2]
     result_final = []
     for pagina in lista_resultado:
@@ -32,7 +32,7 @@ def obtener_personajes(episodio):
         id_personaje = personaje.rsplit('/', 1)[-1]
         lista_personajes.append(int(id_personaje))
 
-    info_personajes = requests.get("https://rickandmortyapi.com/api/character/"+str(lista_personajes)).json()
+    info_personajes = requests.get("https://integracion-rick-morty-api.herokuapp.com/api/character/"+str(lista_personajes)).json()
 
     lista_final = []
     for personajes in info_personajes:
@@ -47,7 +47,7 @@ def obtener_personajes(episodio):
 
 
 def info_episodio(id):
-    episodio = requests.get("https://rickandmortyapi.com/api/episode/"+str(id)).json()
+    episodio = requests.get("https://integracion-rick-morty-api.herokuapp.com/api/episode/"+str(id)).json()
     personajes = obtener_personajes(episodio)
     info_episodio = []
     lista_final = []
@@ -67,7 +67,7 @@ def obtener_episodios_personaje(personaje):
     for episodio in personaje["episode"]:
         id_episodio = episodio.rsplit('/', 1)[-1]
         lista_episodios.append(int(id_episodio))
-    inf_episodio = requests.get("https://rickandmortyapi.com/api/episode/"+str(lista_episodios)).json()
+    inf_episodio = requests.get("https://integracion-rick-morty-api.herokuapp.com/api/episode/"+str(lista_episodios)).json()
     lista_final = []
     for episodio in inf_episodio:
         nombre_episodio = episodio["name"]
@@ -77,7 +77,7 @@ def obtener_episodios_personaje(personaje):
 
 def info_personaje(id):
 
-    personaje = requests.get("https://rickandmortyapi.com/api/character/"+str(id)).json()
+    personaje = requests.get("https://integracion-rick-morty-api.herokuapp.com/api/character/"+str(id)).json()
     episodios = obtener_episodios_personaje(personaje)
     resultado = [personaje["id"], personaje["name"], personaje["status"],
     personaje["species"],personaje["type"],
@@ -103,7 +103,7 @@ def obtener_personajes_lugar(lugar):
         id_personaje = personaje.rsplit('/', 1)[-1]
         lista_personajes.append(int(id_personaje))
 
-    info_personajes = requests.get("https://rickandmortyapi.com/api/character/"+str(lista_personajes)).json()
+    info_personajes = requests.get("https://integracion-rick-morty-api.herokuapp.com/api/character/"+str(lista_personajes)).json()
 
     lista_final = []
     for personajes in info_personajes:
@@ -114,7 +114,7 @@ def obtener_personajes_lugar(lugar):
     return lista_final
 
 def info_lugar(id):
-    lugar = requests.get("https://rickandmortyapi.com/api/location/"+str(id)).json()
+    lugar = requests.get("https://integracion-rick-morty-api.herokuapp.com/api/location/"+str(id)).json()
     personajes = obtener_personajes_lugar(lugar)
     info_lugar = []
     for item in lugar:
